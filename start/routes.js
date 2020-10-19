@@ -23,6 +23,7 @@ Route.get('/', () => {
 });
 
 Route.post('/login', 'AuthController.login');
+Route.post('/register', 'AuthController.register');
 
 Route.resource('users', 'UserController').middleware(['auth']);
 Route.resource('posts', 'PostController').middleware(['auth']);
