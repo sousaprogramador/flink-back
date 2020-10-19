@@ -1,0 +1,178 @@
+openapi: 3.0.0
+info:
+  title: api.v1
+  version: '1.0'
+  description: ''
+  contact:
+    name: Mateus Sousa
+    email: sousa.programador@gmail.com
+servers:
+  - url: 'http://localhost:3333'
+    description: development
+paths:
+  /users:
+    get:
+      summary: Get all users
+      tags: []
+      operationId: get-users
+    post:
+      summary: ''
+      operationId: post-users
+      responses: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    email:
+                      type: string
+                    password:
+                      type: string
+  /login:
+    post:
+      summary: ''
+      operationId: post-login
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+                - email
+                - password
+  /posts:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-case
+      description: ''
+    post:
+      summary: Criar um novo caso
+      operationId: post-case
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                post:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      title:
+                        type: string
+                      description:
+                        type: string
+                      image_url:
+                        type: string
+                      active:
+                        type: number
+            examples:
+              example-1: {}
+        description: ''
+      description: test
+    parameters: []
+  '/posts/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-cases-patient_id
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+      description: ''
+    put:
+      summary: ''
+      operationId: put-cases-patient_id
+      responses:
+        '200':
+          description: OK
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                post:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      title:
+                        type: string
+                      description:
+                        type: string
+                      image_url:
+                        type: string
+                      active:
+                        type: number
+        description: ''
+      description: ''
+  '/users/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-users-id
+    put:
+      summary: ''
+      operationId: put-users-id
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+components:
+  schemas: {}
